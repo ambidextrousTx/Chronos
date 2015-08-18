@@ -4,9 +4,9 @@ Chronos:
   Runs on the desktop
 """
 
-from Entity import Entity
-from Project import Project
-from SubProject import SubProject
+from entity import Entity
+from project import Project
+from subproject import SubProject
 from datetime import datetime
 
 def initialize(entity):
@@ -18,12 +18,12 @@ def initialize(entity):
     entity.subproject.name = subproj_name
     return
 
-def setStopTime(entity):
-    entity.stopTime = datetime.now()
+def set_stop_time(entity):
+    entity.stop_time = datetime.now()
 
-def displaySummary(entity):
-    print entity.startTime
-    print entity.stopTime
+def display_summary(entity):
+    print entity.start_time
+    print entity.stop_time
     print entity.project.name
     print entity.subproject.name
 
@@ -35,10 +35,10 @@ def main():
     while True:
         enter = raw_input()
         if enter == '':
-            setStopTime(entity)
+            set_stop_time(entity)
             break
 
-    displaySummary(entity)
+    display_summary(entity)
 
 if __name__ == '__main__':
     main()
