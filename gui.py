@@ -1,4 +1,5 @@
 from Tkinter import *
+from entity import Entity
 
 class Frontend(Frame):
     ''' The front end of the application '''
@@ -6,10 +7,13 @@ class Frontend(Frame):
     def do_track(self):
         ''' Start the tracking '''
         print 'Tracking now ...', self
+        self.entity = Entity()
+        print 'Created new track entity %s' % self.entity.start_time
 
     def do_stop(self):
         ''' Stop tracking '''
         print 'Stopping now ...', self
+        print 'Tracked total time %s' % self.entity.stop_time
 
     def create_widgets(self):
         ''' Intialize widgets '''
@@ -33,6 +37,7 @@ class Frontend(Frame):
         self.bye = None
         self.track = None
         self.stop = None
+        self.entity = None
         Frame.__init__(self, master)
         self.pack()
         self.create_widgets()
