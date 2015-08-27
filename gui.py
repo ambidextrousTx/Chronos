@@ -8,12 +8,15 @@ class Frontend(Frame):
         ''' Start the tracking '''
         print 'Tracking now ...', self
         self.entity = Entity()
-        print 'Created new track entity %s' % self.entity.start_time
+        print 'Created new track entity'
+        self.entity.start()
+        print 'Tracking time ...'
 
     def do_stop(self):
         ''' Stop tracking '''
         print 'Stopping now ...', self
-        print 'Tracked total time %s' % self.entity.stop_time
+        self.entity.stop()
+        print 'Tracked total time %s' % self.entity.compute_elapsed_time()
 
     def create_widgets(self):
         ''' Intialize widgets '''
