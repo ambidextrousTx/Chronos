@@ -42,7 +42,7 @@ class Frontend(Frame):
         self.stop = None
         self.entity = None
         Frame.__init__(self, master)
-        self.pack()
+        self.pack(expand=1)
         self.create_widgets()
 
 if __name__ == '__main__':
