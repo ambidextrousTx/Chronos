@@ -6,17 +6,21 @@ class Frontend(Frame):
 
     def do_track(self):
         ''' Start the tracking '''
-        print 'Tracking now ...', self
-        self.entity = Entity()
-        print 'Created new track entity'
-        self.entity.start()
-        print 'Tracking time ...'
+        if self.entity.tracking == False:
+            print 'Tracking now ...', self
+            self.entity.start()
+            self.entity.tracking = True
+        else:
+            print 'Already tracking ...'
 
     def do_stop(self):
         ''' Stop tracking '''
-        print 'Stopping now ...', self
-        self.entity.stop()
-        print 'Tracked total time %s' % self.entity.compute_elapsed_time()
+        if self.entity.tracking == True:
+            print 'Stopping now ...', self
+            self.entity.stop()
+            print 'Tracked total time %s' % self.entity.compute_elapsed_time()
+        else:
+            print 'Not tracking anything ...'
 
     def create_widgets(self):
         ''' Intialize widgets '''
@@ -40,7 +44,7 @@ class Frontend(Frame):
         self.bye = None
         self.track = None
         self.stop = None
-        self.entity = None
+        self.entity = Entity()
         Frame.__init__(self, master)
         self.pack(expand=1)
         self.create_widgets()
