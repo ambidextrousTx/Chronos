@@ -18,7 +18,7 @@ class Frontend(Frame):
         if self.entity.tracking == True:
             print 'Stopping now ...', self
             self.entity.stop()
-            print 'Tracked total time %s' % self.entity.compute_elapsed_time()
+            print 'Tracked total time %s' % self.entity.get_elapsed_time()
         else:
             print 'Not tracking anything ...'
 

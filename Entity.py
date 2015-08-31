@@ -13,12 +13,16 @@ class Entity(object):
         self.tracking = False
         self.start_time = None
         self.stop_time = None
+        self.elapsed_time = None
         self.project = Project('')
         self.subproject = SubProject('')
 
-    def compute_elapsed_time(self):
+    def get_elapsed_time(self):
         ''' Compute the difference/ delta between the stop and start time '''
-        return self.stop_time - self.start_time
+        if self.tracking == True:
+            return 'Still tracking!'
+        else:
+            return self.elapsed_time
 
     def start(self):
         ''' Called when the tracking begins '''
@@ -29,4 +33,4 @@ class Entity(object):
         ''' Called when the tracking ends '''
         self.stop_time = datetime.now()
         self.tracking = False
-
+        self.elapsed_time = self.stop_time - self.start_time
