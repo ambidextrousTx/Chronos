@@ -7,9 +7,15 @@ class Frontend(Frame):
     def do_track(self):
         ''' Start the tracking '''
         if self.entity.tracking == False:
-            print 'Tracking now ...', self
+            print 'Enter the project name '
+            project_name = raw_input()
+            print 'Enter the subproject name '
+            subproject_name = raw_input()
+            self.entity.set_project(project_name)
+            self.entity.set_subproject(subproject_name)
             self.entity.start()
             self.entity.tracking = True
+            print 'Tracking now ...', self
         else:
             print 'Already tracking ...'
 
@@ -19,6 +25,8 @@ class Frontend(Frame):
             print 'Stopping now ...', self
             self.entity.stop()
             print 'Tracked total time %s' % self.entity.get_elapsed_time()
+            print 'Project %s' % self.entity.project.get_name()
+            print 'Sub-Project %s' % self.entity.sub_project.get_name()
         else:
             print 'Not tracking anything ...'
 

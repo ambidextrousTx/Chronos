@@ -14,8 +14,18 @@ class Entity(object):
         self.start_time = None
         self.stop_time = None
         self.elapsed_time = None
-        self.project = Project('')
-        self.subproject = SubProject('')
+        self.project = None
+        self.sub_project = None
+
+    def set_project(self, project_name):
+        ''' Set the project name. Currently setting it like this.
+        Susceptible for cleanup later '''
+        self.project = Project(project_name)
+
+    def set_subproject(self, subproject_name):
+        ''' Set the subproject name. Currently setting it like this.
+        Susceptible for cleanup later '''
+        self.sub_project = SubProject(subproject_name)
 
     def get_elapsed_time(self):
         ''' Compute the difference/ delta between the stop and start time '''
