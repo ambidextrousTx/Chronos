@@ -60,6 +60,8 @@ class Frontend(Frame):
 if __name__ == '__main__':
     ROOT = Tk()
     APP = Frontend(master=ROOT)
+    APP.master.title('Chronos')
+    APP.master.minsize(640, 480)
     APP.mainloop()
     ROOT.destroy()
 
