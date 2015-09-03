@@ -48,11 +48,19 @@ class Frontend(Frame):
         self.stop['command'] = self.do_stop
         self.stop.pack({'side': 'left'})
 
+        self.project = Entry(self)
+        self.project.pack({'side': 'left'})
+
+        self.subproject = Entry(self)
+        self.subproject.pack({'side': 'left'})
+
     def __init__(self, master=None):
         self.bye = None
         self.track = None
         self.stop = None
         self.entity = Entity()
+        self.project = None
+        self.subproject = None
         Frame.__init__(self, master)
         self.pack(expand=1)
         self.create_widgets()
