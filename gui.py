@@ -49,10 +49,10 @@ class Frontend(Frame):
         self.stop.pack({'side': 'left'})
 
         self.project = Entry(self)
-        self.project.pack({'side': 'left'})
+        self.project.pack({'side': 'bottom'})
 
         self.subproject = Entry(self)
-        self.subproject.pack({'side': 'left'})
+        self.subproject.pack({'side': 'bottom'})
 
     def __init__(self, master=None):
         self.bye = None
