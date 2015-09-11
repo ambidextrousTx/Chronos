@@ -9,8 +9,14 @@ class Frontend(Frame):
         if self.entity.tracking == False:
             print 'Enter the project name '
             project_name = raw_input()
+            while project_name == '':
+                print 'Enter the project name '
+                project_name = raw_input()
             print 'Enter the subproject name '
             subproject_name = raw_input()
+            while subproject_name == '':
+                print 'Enter the subproject name '
+                subproject_name = raw_input()
             self.entity.set_project(project_name)
             self.entity.set_subproject(subproject_name)
             self.entity.start()
