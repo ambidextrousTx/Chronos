@@ -1,0 +1,5 @@
+TODO
+- Ability to enter the project and subproject names from the UI
+- Better GUI ('better')
+- Real time changing of the project and subproject names
+- Assignment of different colors to different projects
