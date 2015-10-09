@@ -11,22 +11,21 @@ def initialize(entity):
     ''' Initialize the app '''
     print 'Project name: '
     proj_name = raw_input()
-    entity.project.name = proj_name
+    entity.set_project(proj_name)
     print 'SubProject name: '
     subproj_name = raw_input()
-    entity.subproject.name = subproj_name
+    entity.set_subproject(subproj_name)
+    entity.start()
     return
 
 def set_stop_time(entity):
     ''' Stop timing it now '''
-    entity.stop_time = datetime.now()
+    entity.stop()
 
 def display_summary(entity):
     ''' Tabulate the summary of the tracking '''
-    print entity.start_time
-    print entity.stop_time
-    print entity.project.name
-    print entity.subproject.name
+    print 'Getting total time elapsed'
+    print entity.get_elapsed_time()
 
 def main():
     entity = Entity()
