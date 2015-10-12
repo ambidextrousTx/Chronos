@@ -1,4 +1,15 @@
+#Chronos
+
 A localized, desktop implementation of Toggl.
 Precludes Internet-dependability.
 Built on Python and TKinter.
+
+Run with
+
+$ python gui.py
+
+or
+
+$ python main.py
+
 ~Ambidextrous.
