@@ -10,11 +10,13 @@ class Frontend(Frame):
             print 'Enter the project name '
             project_name = raw_input()
             while project_name == '':
+            	print 'Cannot be empty!'
                 print 'Enter the project name '
                 project_name = raw_input()
             print 'Enter the subproject name '
             subproject_name = raw_input()
             while subproject_name == '':
+            	print 'Cannot be empty!'
                 print 'Enter the subproject name '
                 subproject_name = raw_input()
             self.entity.set_project(project_name)
