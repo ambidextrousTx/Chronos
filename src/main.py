@@ -5,15 +5,20 @@ Chronos:
 """
 
 from entity import Entity
-from datetime import datetime
 
 def initialize(entity):
     ''' Initialize the app '''
     print 'Project name: '
     proj_name = raw_input()
+    while proj_name == '':
+        print 'Project name: '
+        proj_name = raw_input()
     entity.set_project(proj_name)
     print 'SubProject name: '
     subproj_name = raw_input()
+    while subproj_name == '':
+        print 'SubProject name: '
+        subproj_name = raw_input()
     entity.set_subproject(subproj_name)
     entity.start()
     return
