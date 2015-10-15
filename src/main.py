@@ -6,22 +6,26 @@ Chronos:
 
 from entity import Entity
 
-def initialize(entity):
-    ''' Initialize the app '''
-    print 'Project name: '
+def enforce_nonempty_name():
+    ''' Enforce a non empty project or subproject name '''
     proj_name = raw_input()
     while proj_name == '':
         print 'Cannot be empty!'
-        print 'Project name: '
+        print 'Name: '
         proj_name = raw_input()
+    return proj_name
+
+def initialize(entity):
+    ''' Initialize the app '''
+
+    print 'Project name: '
+    proj_name = enforce_nonempty_name()
     entity.set_project(proj_name)
+
     print 'SubProject name: '
-    subproj_name = raw_input()
-    while subproj_name == '':
-        print 'Cannot be empty!'
-        print 'SubProject name: '
-        subproj_name = raw_input()
+    subproj_name = enforce_nonempty_name()
     entity.set_subproject(subproj_name)
+
     entity.start()
     return
 
