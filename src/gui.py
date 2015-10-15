@@ -1,5 +1,6 @@
 from Tkinter import *
 from entity import Entity
+import main
 
 class Frontend(Frame):
     ''' The front end of the application '''
@@ -8,17 +9,9 @@ class Frontend(Frame):
         ''' Start the tracking '''
         if self.entity.tracking == False:
             print 'Enter the project name '
-            project_name = raw_input()
-            while project_name == '':
-            	print 'Cannot be empty!'
-                print 'Enter the project name '
-                project_name = raw_input()
+            project_name = main.enforce_nonempty_name()
             print 'Enter the subproject name '
-            subproject_name = raw_input()
-            while subproject_name == '':
-            	print 'Cannot be empty!'
-                print 'Enter the subproject name '
-                subproject_name = raw_input()
+            subproject_name = main.enforce_nonempty_name()
             self.entity.set_project(project_name)
             self.entity.set_subproject(subproject_name)
             self.entity.start()
