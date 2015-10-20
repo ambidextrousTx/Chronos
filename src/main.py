@@ -35,7 +35,11 @@ def set_stop_time(entity):
 
 def display_summary(entity):
     ''' Tabulate the summary of the tracking '''
-    print 'Getting total time elapsed'
+    print 'Project name: %s' % entity.project.get_name()
+    print 'Sub-project name: %s' % entity.sub_project.get_name()
+    print 'Start time: %s' % entity.start_time
+    print 'End time: %s' % entity.stop_time
+    print 'Computing total time elapsed'
     print entity.get_elapsed_time()
 
 def main():
