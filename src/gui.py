@@ -37,23 +37,23 @@ class Frontend(tk.Frame):
         self.bye['text'] = 'Quit'
         self.bye['fg'] = 'red'
         self.bye['command'] = self.quit
-        self.bye.grid()
+        self.bye.grid(row=0, column=0)
 
         self.track = tk.Button(self)
         self.track['text'] = 'Track'
         self.track['command'] = self.do_track
-        self.track.grid()
+        self.track.grid(row=0, column=2)
 
         self.stop = tk.Button(self)
         self.stop['text'] = 'Stop'
         self.stop['command'] = self.do_stop
-        self.stop.grid()
+        self.stop.grid(row=0, column=4)
 
         self.project = tk.Entry(self)
-        self.project.grid()
+        self.project.grid(row=2, column=1)
 
         self.subproject = tk.Entry(self)
-        self.subproject.grid()
+        self.subproject.grid(row=2, column=3)
 
     def __init__(self, master=None):
         self.bye = None
