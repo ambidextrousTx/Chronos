@@ -37,23 +37,23 @@ class Frontend(tk.Frame):
         self.bye['text'] = 'Quit'
         self.bye['fg'] = 'red'
         self.bye['command'] = self.quit
-        self.bye.pack({'side': 'left'})
+        self.bye.grid()
 
         self.track = tk.Button(self)
         self.track['text'] = 'Track'
         self.track['command'] = self.do_track
-        self.track.pack({'side': 'left'})
+        self.track.grid()
 
         self.stop = tk.Button(self)
         self.stop['text'] = 'Stop'
         self.stop['command'] = self.do_stop
-        self.stop.pack({'side': 'left'})
+        self.stop.grid()
 
         self.project = tk.Entry(self)
-        self.project.pack({'side': 'bottom'})
+        self.project.grid()
 
         self.subproject = tk.Entry(self)
-        self.subproject.pack({'side': 'bottom'})
+        self.subproject.grid()
 
     def __init__(self, master=None):
         self.bye = None
@@ -63,7 +63,7 @@ class Frontend(tk.Frame):
         self.project = None
         self.subproject = None
         tk.Frame.__init__(self, master)
-        self.pack(expand=1)
+        self.grid()
         self.create_widgets()
 
 if __name__ == '__main__':
