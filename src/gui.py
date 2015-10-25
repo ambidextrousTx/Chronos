@@ -1,8 +1,8 @@
-from Tkinter import *
+import Tkinter as tk
 from entity import Entity
 import main
 
-class Frontend(Frame):
+class Frontend(tk.Frame):
     ''' The front end of the application '''
 
     def do_track(self):
@@ -33,26 +33,26 @@ class Frontend(Frame):
 
     def create_widgets(self):
         ''' Intialize widgets '''
-        self.bye = Button(self)
+        self.bye = tk.Button(self)
         self.bye['text'] = 'Quit'
         self.bye['fg'] = 'red'
         self.bye['command'] = self.quit
         self.bye.pack({'side': 'left'})
 
-        self.track = Button(self)
+        self.track = tk.Button(self)
         self.track['text'] = 'Track'
         self.track['command'] = self.do_track
         self.track.pack({'side': 'left'})
 
-        self.stop = Button(self)
+        self.stop = tk.Button(self)
         self.stop['text'] = 'Stop'
         self.stop['command'] = self.do_stop
         self.stop.pack({'side': 'left'})
 
-        self.project = Entry(self)
+        self.project = tk.Entry(self)
         self.project.pack({'side': 'bottom'})
 
-        self.subproject = Entry(self)
+        self.subproject = tk.Entry(self)
         self.subproject.pack({'side': 'bottom'})
 
     def __init__(self, master=None):
@@ -62,12 +62,12 @@ class Frontend(Frame):
         self.entity = Entity()
         self.project = None
         self.subproject = None
-        Frame.__init__(self, master)
+        tk.Frame.__init__(self, master)
         self.pack(expand=1)
         self.create_widgets()
 
 if __name__ == '__main__':
-    ROOT = Tk()
+    ROOT = tk.Tk()
     APP = Frontend(master=ROOT)
     APP.master.title('Chronos')
     APP.master.minsize(640, 480)
