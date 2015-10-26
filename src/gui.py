@@ -9,9 +9,11 @@ class Frontend(tk.Frame):
         ''' Start the tracking '''
         if self.entity.tracking == False:
             print 'Enter the project name '
-            project_name = main.enforce_nonempty_name()
+            # project_name = main.enforce_nonempty_name()
+            project_name = self.project.get()
             print 'Enter the subproject name '
-            subproject_name = main.enforce_nonempty_name()
+            # subproject_name = main.enforce_nonempty_name()
+            subproject_name = self.subproject.get()
             self.entity.set_project(project_name)
             self.entity.set_subproject(subproject_name)
             self.entity.start()
@@ -39,6 +41,16 @@ class Frontend(tk.Frame):
         self.bye['command'] = self.quit
         self.bye.grid(row=0, column=0)
 
+        name_enforcement = self.register(main.enforce_nonempty_name)
+
+        self.project = tk.Entry(self, validate='all',
+                                validatecommand=(name_enforcement))
+        self.project.grid(row=2, column=1)
+
+        self.subproject = tk.Entry(self, validate='all',
+                                   validatecommand=(name_enforcement))
+        self.subproject.grid(row=2, column=3)
+
         self.track = tk.Button(self)
         self.track['text'] = 'Track'
         self.track['command'] = self.do_track
@@ -48,12 +60,6 @@ class Frontend(tk.Frame):
         self.stop['text'] = 'Stop'
         self.stop['command'] = self.do_stop
         self.stop.grid(row=0, column=4)
-
-        self.project = tk.Entry(self)
-        self.project.grid(row=2, column=1)
-
-        self.subproject = tk.Entry(self)
-        self.subproject.grid(row=2, column=3)
 
     def __init__(self, master=None):
         self.bye = None
@@ -70,7 +76,7 @@ if __name__ == '__main__':
     ROOT = tk.Tk()
     APP = Frontend(master=ROOT)
     APP.master.title('Chronos')
-    APP.master.minsize(640, 480)
+    APP.master.minsize(360, 240)
     APP.mainloop()
     ROOT.destroy()
 
