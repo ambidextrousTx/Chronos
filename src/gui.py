@@ -1,6 +1,6 @@
 import Tkinter as tk
 from entity import Entity
-import main
+import util
 
 class Frontend(tk.Frame):
     ''' The front end of the application '''
@@ -8,12 +8,10 @@ class Frontend(tk.Frame):
     def do_track(self):
         ''' Start the tracking '''
         if self.entity.tracking == False:
-            print 'Enter the project name '
-            # project_name = main.enforce_nonempty_name()
             project_name = self.project.get()
-            print 'Enter the subproject name '
-            # subproject_name = main.enforce_nonempty_name()
+            print project_name, 'Entered from the widget'
             subproject_name = self.subproject.get()
+            print subproject_name, 'Entered from the widget'
             self.entity.set_project(project_name)
             self.entity.set_subproject(subproject_name)
             self.entity.start()
@@ -41,7 +39,7 @@ class Frontend(tk.Frame):
         self.bye['command'] = self.quit
         self.bye.grid(row=0, column=0)
 
-        name_enforcement = self.register(main.enforce_nonempty_name)
+        name_enforcement = self.register(util.enforce_nonempty_in_widget)
 
         self.project = tk.Entry(self, validate='all',
                                 validatecommand=(name_enforcement))
