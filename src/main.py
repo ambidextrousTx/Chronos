@@ -4,8 +4,8 @@ Chronos:
   Runs on the desktop
 """
 
-from entity import Entity
 import util
+from entity import Entity
 
 def initialize(entity):
     ''' Initialize the app '''
@@ -46,6 +46,7 @@ def main():
             break
 
     display_summary(entity)
+    util.write_results_to_file(entity)
 
 if __name__ == '__main__':
     main()
